@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cluster-list.component.css']
 })
 export class ClusterListComponent implements OnInit {
-  private clusters = ['Cluster1', 'Cluster 2', 'Cluster 3'];
+  public clusters = ['Cluster1', 'Cluster 2', 'Cluster 3'];
 
   constructor() { }
 

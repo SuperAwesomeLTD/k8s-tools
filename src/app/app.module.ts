@@ -9,9 +9,16 @@ import {
   MatListModule,
 } from '@angular/material';
 import { NgModule } from '@angular/core';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 import { AppComponent } from './app.component';
 import { ClustersPageComponent } from './pages/clusters-page/clusters-page.component';
 import { ClusterListComponent } from './components/cluster-list/cluster-list.component';
+import { AuthService } from './services/auth.service';
+import { globals } from '../environments/globals';
 
 const appRoutes: Routes = [
   {
@@ -33,6 +40,9 @@ const appRoutes: Routes = [
     ClusterListComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(globals.firebaseConf),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
@@ -45,7 +55,7 @@ const appRoutes: Routes = [
     MatIconModule,
     MatListModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
