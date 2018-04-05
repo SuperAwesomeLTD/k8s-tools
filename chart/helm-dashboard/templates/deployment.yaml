@@ -1,0 +1,46 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  labels:
+    app: helm-dashboard
+  name: helm-dashboard
+spec:
+  revisionHistoryLimit: 5
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: helm-dashboard
+  template:
+    metadata:
+      labels:
+        app: helm-dashboard
+    spec:
+      containers:
+      - name: helm-dashboard
+        image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+        ports:
+        - name: http
+          containerPort: {{ .Values.port }}
+          protocol: TCP
+        env:
+        {{- range $key, $value :=  .Values.env }}
+        - name: {{ $key }}
+          value: {{ $value | quote }}
+        {{- end }}
+        readinessProbe:
+          httpGet:
+            path: /
+            port: {{ .Values.port }}
+          initialDelaySeconds: 3
+          periodSeconds: 5
+          successThreshold: 1
+          failureThreshold: 1
+        livenessProbe:
+          httpGet:
+            path: /
+            port: {{ .Values.port }}
+          initialDelaySeconds: 15
+          periodSeconds: 5
+          failureThreshold: 3
+        resources:
+{{ toYaml .Values.resources | indent 10 }}
