@@ -9,7 +9,8 @@ import {
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { ClustersPageComponent } from './components/clusters-page/clusters-page.component';
+import { ClustersPageComponent } from './pages/clusters-page/clusters-page.component';
+import { ClusterListComponent } from './components/cluster-list/cluster-list.component';
 
 const appRoutes: Routes = [
   {
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ClustersPageComponent
+    ClustersPageComponent,
+    ClusterListComponent
   ],
   imports: [
     RouterModule.forRoot(
