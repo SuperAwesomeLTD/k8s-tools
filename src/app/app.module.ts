@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule, Routes } from '@angular/router';
 import {
   MatMenuModule,
   MatToolbarModule,
@@ -19,34 +18,23 @@ import { ClustersPageComponent } from './pages/clusters-page/clusters-page.compo
 import { ClusterListComponent } from './components/cluster-list/cluster-list.component';
 import { AuthService } from './services/auth.service';
 import { globals } from '../environments/globals';
-
-const appRoutes: Routes = [
-  {
-    path: 'clusters',
-    component: ClustersPageComponent,
-    data: { title: 'Cluster List' }
-  },
-  { path: '',
-    redirectTo: '/clusters',
-    pathMatch: 'full'
-  },
-  { path: '**', component: ClustersPageComponent } // page not found
-];
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { AuthGuardService } from './services/auth-guard.service';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClustersPageComponent,
-    ClusterListComponent
+    ClusterListComponent,
+    ToolbarComponent,
+    LoginPageComponent
   ],
   imports: [
     AngularFireModule.initializeApp(globals.firebaseConf),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),
     BrowserModule,
     BrowserAnimationsModule,
     MatMenuModule,
@@ -54,8 +42,9 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatListModule,
+    AppRoutingModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

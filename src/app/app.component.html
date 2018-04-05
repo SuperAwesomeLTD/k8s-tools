@@ -1,20 +1,4 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>K8S TOOLS</span>
-    <span class="spacer"></span>
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/clusters" routerLinkActive="active">Clusters</button>
-      <button mat-menu-item routerLink="/other" routerLinkActive="active">Other</button>
-    </mat-menu>
-    <button mat-icon-button>
-      <mat-icon>eject</mat-icon>
-    </button>
-  </mat-toolbar-row>
-</mat-toolbar>
-
+<app-toolbar></app-toolbar>
 <div class="page-content">
   <router-outlet></router-outlet>
 </div>
