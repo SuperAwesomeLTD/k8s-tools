@@ -6,6 +6,7 @@ import {
   MatToolbarModule,
   MatButtonModule,
   MatIconModule,
+  MatListModule,
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
