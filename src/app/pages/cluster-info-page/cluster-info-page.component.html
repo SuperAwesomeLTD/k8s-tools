@@ -1,3 +1,48 @@
-<p>
-  cluster-info-page works!
-</p>
+<h2>Cluster: {{ cluster?.name }}</h2>
+<div class="container mat-elevation-z2" *ngIf="releases?.length">
+  <mat-table #table [dataSource]="releases">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let release"> {{release.name }} </mat-cell>
+      </ng-container>
+
+    <!-- Chart name Column -->
+    <ng-container matColumnDef="chart">
+      <mat-header-cell *matHeaderCellDef> Chart name </mat-header-cell>
+      <mat-cell *matCellDef="let release"> {{release.chart_metadata.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Version Column -->
+    <ng-container matColumnDef="version">
+      <mat-header-cell *matHeaderCellDef> Version </mat-header-cell>
+      <mat-cell *matCellDef="let release"> {{release.chart_metadata.version}} </mat-cell>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let release"> {{release.info.status.code}} </mat-cell>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let release">
+        <button mat-icon-button [matMenuTriggerFor]="action">
+          <mat-icon class="mini">more_vert</mat-icon>
+        </button>
+        <mat-menu #action="matMenu" yPosition="below" xPosition="before">
+          <button mat-menu-item> More </button>
+        </mat-menu>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"
+            (click)="goToRelease(row)">
+    </mat-row>
+  </mat-table>
+</div>
+  

@@ -15,7 +15,6 @@ export class ClusterListComponent implements OnInit {
 
   public displayedColumns = ['name', 'url', 'token', 'status', 'actions'];
   public dataSource = new MatTableDataSource<Cluster>(this.clusters);
-  public selectedRowIndex = -1;
 
   constructor(
     private helmService: HelmService,

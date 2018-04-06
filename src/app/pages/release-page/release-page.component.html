@@ -1,0 +1,12 @@
+<h2>Release: {{ release?.name}}</h2>
+<mat-form-field>
+  <mat-select placeholder="Revision">
+    <mat-option *ngFor="let revision of release?.history" [value]="revision.version" (click)="selectedRevision = revision">
+      {{ revision.version }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field>
+  <textarea matInput placeholder="Edit values" matTextareaAutosize matAutosizeMinRows="5" matAutosizeMaxRows="150" [value]="selectedRevision?.config.raw"></textarea>
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="save()" class="add-cluster">Save</button>

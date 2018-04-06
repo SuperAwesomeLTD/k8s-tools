@@ -19,13 +19,14 @@
 }
 
 .error {
-  color: firebrick;
+  color: #ee5253;
 }
 
 .success {
-  color: limegreen;
+  color: #10ac84;
 }
 
-.highlight {
-  background: lightsteelblue;
+mat-row:hover {
+  background: #c8d6e5;
+  cursor: pointer;
 }

@@ -13,6 +13,7 @@ import {
   MatInputModule,
   MatTableModule,
   MatCheckboxModule,
+  MatSelectModule,
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 
@@ -35,6 +36,7 @@ import { AddClusterModalComponent } from './components/add-cluster-modal/add-clu
 import { ClustersService } from './services/clusters.service';
 import { HelmService } from './services/helm.service';
 import { ClusterInfoPageComponent } from './pages/cluster-info-page/cluster-info-page.component';
+import { ReleasePageComponent } from './pages/release-page/release-page.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { ClusterInfoPageComponent } from './pages/cluster-info-page/cluster-info
     LoginPageComponent,
     NotFoundPageComponent,
     AddClusterModalComponent,
-    ClusterInfoPageComponent
+    ClusterInfoPageComponent,
+    ReleasePageComponent
   ],
   imports: [
     FormsModule,
@@ -64,6 +67,7 @@ import { ClusterInfoPageComponent } from './pages/cluster-info-page/cluster-info
     MatInputModule,
     MatTableModule,
     MatCheckboxModule,
+    MatSelectModule,
     AppRoutingModule,
     HttpClientModule,
   ],

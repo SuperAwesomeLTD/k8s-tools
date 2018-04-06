@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.mat-table {
+  overflow: auto;
+}
+
+.mat-column-select {
+  overflow: visible;
+}
+
+.mat-column-actions {
+  flex: 0 0 50px;
+}
+
+mat-row:hover {
+  background: #c8d6e5;
+  cursor: pointer;
+}

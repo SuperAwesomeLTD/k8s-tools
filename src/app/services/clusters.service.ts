@@ -31,6 +31,11 @@ export class ClustersService {
     });
   }
 
+  getCluster(uid: string) {
+    const userId = this.afAuth.auth.currentUser.uid;
+    return this.firebaseStore.collection(`clusters`, ref => ref.where('uid', '==', uid)).valueChanges();
+  }
+
   removeCluster(uid: string) {
     return this.firebaseStore.collection(`clusters`).doc(uid).delete();
   }

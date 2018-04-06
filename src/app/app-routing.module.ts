@@ -5,6 +5,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { ClusterInfoPageComponent } from './pages/cluster-info-page/cluster-info-page.component';
+import { ReleasePageComponent } from './pages/release-page/release-page.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
   {
     path: 'cluster/:id',
     component: ClusterInfoPageComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'cluster/:id/:release',
+    component: ReleasePageComponent,
     canActivate: [AuthGuardService],
   },
   {
