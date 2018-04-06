@@ -4,18 +4,22 @@ import { ClustersPageComponent } from './pages/clusters-page/clusters-page.compo
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { ClusterInfoPageComponent } from './pages/cluster-info-page/cluster-info-page.component';
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginPageComponent,
-    data: { title: 'Login' }
+    component: LoginPageComponent
   },
   {
     path: 'clusters',
     component: ClustersPageComponent,
-    data: { title: 'Cluster List' },
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'cluster/:id',
+    component: ClusterInfoPageComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: '',

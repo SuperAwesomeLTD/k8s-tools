@@ -34,6 +34,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { AddClusterModalComponent } from './components/add-cluster-modal/add-cluster-modal.component';
 import { ClustersService } from './services/clusters.service';
 import { HelmService } from './services/helm.service';
+import { ClusterInfoPageComponent } from './pages/cluster-info-page/cluster-info-page.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { HelmService } from './services/helm.service';
     ToolbarComponent,
     LoginPageComponent,
     NotFoundPageComponent,
-    AddClusterModalComponent
+    AddClusterModalComponent,
+    ClusterInfoPageComponent
   ],
   imports: [
     FormsModule,

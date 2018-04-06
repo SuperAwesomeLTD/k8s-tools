@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { HelmService } from '../../services/helm.service';
 import { Cluster } from '../../interfaces/clusters';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cluster-list',
@@ -12,30 +13,21 @@ import { Cluster } from '../../interfaces/clusters';
 export class ClusterListComponent implements OnInit {
   @Input() clusters: Cluster[];
 
-  displayedColumns = ['select', 'name', 'url', 'token', 'status', 'actions'];
-  dataSource = new MatTableDataSource<Cluster>(this.clusters);
-  selection = new SelectionModel<Cluster>(true, []);
+  public displayedColumns = ['name', 'url', 'token', 'status', 'actions'];
+  public dataSource = new MatTableDataSource<Cluster>(this.clusters);
+  public selectedRowIndex = -1;
 
   constructor(
-    private helmService: HelmService
+    private helmService: HelmService,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.getClusterInfo();
   }
 
-  /** Whether the number of selected elements matches the total number of rows. */
-  isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
-    return numSelected === numRows;
-  }
-
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
-  masterToggle() {
-    this.isAllSelected() ?
-        this.selection.clear() :
-        this.dataSource.data.forEach(row => this.selection.select(row));
+  goToReleases(cluster: Cluster) {
+    this.router.navigate(['/cluster/' + cluster.uid]);
   }
 
   setClusterInfo(cluster: Cluster, info: object) {

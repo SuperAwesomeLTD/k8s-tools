@@ -25,3 +25,7 @@
 .success {
   color: limegreen;
 }
+
+.highlight {
+  background: lightsteelblue;
+}
