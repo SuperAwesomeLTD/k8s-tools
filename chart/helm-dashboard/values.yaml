@@ -4,25 +4,5 @@ image:
 replicas: 1
 port: 80
 env: {}
-
-oauth2-proxy:
-  service:
-    externalPort: 80 
-  config:
-    clientID: XXXX
-    clientSecret: XXXX
-    cookieSecret: XXXX
-  ingress:
-    enabled: true
-    hosts:
-    - helm.example.com
-  extraArgs:
-    upstream: http://helm-dashboard
-    email-domain: example.com
-    skip-provider-button: true
-
-swift:
-  rbac:
-    create: false
-  serviceAccount:
-    create: false
+hosts:
+- helm.example.com
