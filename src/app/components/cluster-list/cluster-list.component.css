@@ -1,14 +1,8 @@
-.cluster {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-}
-
 .no-clusters {
   padding: 10px;
 }
 
-.example-container {
+.container {
   display: flex;
   flex-direction: column;
   max-height: 500px;
@@ -22,4 +16,8 @@
 
 .mat-column-select {
   overflow: visible;
+}
+
+.mat-column-select {
+  flex: 0 0 50px;
 }

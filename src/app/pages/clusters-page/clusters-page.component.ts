@@ -26,10 +26,10 @@ export class ClustersPageComponent implements OnInit {
   addCluster(): void {
     const dialogRef = this.dialog.open(AddClusterModalComponent, {});
     dialogRef.afterClosed().subscribe(cluster => {
-      // if (cluster) {
+      if (cluster) {
         this.clustersService.addCluster(cluster);
         this.clusters.push(cluster);
-      // }
+      }
     });
   }
 }

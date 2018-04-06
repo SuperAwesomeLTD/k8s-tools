@@ -1,6 +1,6 @@
 export interface Cluster {
   name: string;
   url: string;
-  key: string;
+  token: string;
   uid?: string;
 }

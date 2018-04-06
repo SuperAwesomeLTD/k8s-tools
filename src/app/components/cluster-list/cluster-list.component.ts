@@ -10,7 +10,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 export class ClusterListComponent {
   @Input() clusters: any[];
 
-  displayedColumns = ['select', 'name', 'url', 'key'];
+  displayedColumns = ['select', 'name', 'url', 'token', 'status', 'actions'];
   dataSource = new MatTableDataSource<Element>(this.clusters);
   selection = new SelectionModel<Element>(true, []);
 

@@ -23,7 +23,7 @@ export class ClustersService {
     return this.firebaseStore.collection(`clusters`).add({
       userId: this.afAuth.auth.currentUser.uid,
       url: cluster.url,
-      key: cluster.key,
+      token: cluster.token,
       name: cluster.name
     })
     .then(function(ref) {
