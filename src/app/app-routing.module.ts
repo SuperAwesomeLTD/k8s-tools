@@ -17,6 +17,12 @@ const routes: Routes = [
     data: { title: 'Cluster List' },
     canActivate: [AuthGuardService]
   },
+  {
+    path: '',
+    redirectTo: 'clusters',
+    pathMatch: 'full',
+    canActivate: [AuthGuardService]
+  },
   { path: '**', component: NotFoundPageComponent }
 ];
 

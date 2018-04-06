@@ -12,6 +12,7 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 import { AppComponent } from './app.component';
 import { ClustersPageComponent } from './pages/clusters-page/clusters-page.component';
@@ -46,7 +47,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
     MatListModule,
     AppRoutingModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
