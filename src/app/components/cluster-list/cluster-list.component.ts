@@ -4,13 +4,14 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { HelmService } from '../../services/helm.service';
 import { Cluster } from '../../interfaces/clusters';
 import { Router } from '@angular/router';
+import { OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-cluster-list',
   templateUrl: './cluster-list.component.html',
   styleUrls: ['./cluster-list.component.css']
 })
-export class ClusterListComponent implements OnInit {
+export class ClusterListComponent implements OnInit, OnChanges {
   @Input() clusters: Cluster[];
 
   public displayedColumns = ['name', 'url', 'token', 'status', 'actions'];
@@ -22,6 +23,10 @@ export class ClusterListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.getClusterInfo();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
     this.getClusterInfo();
   }
 
