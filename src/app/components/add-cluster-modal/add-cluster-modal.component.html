@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Cluster</h1>
+<div mat-dialog-content>
+  <mat-form-field class="input-field">
+    <input matInput placeholder="Name" [(ngModel)]="cluster.name">
+  </mat-form-field>
+  <mat-form-field class="input-field">
+    <input matInput placeholder="URL" [(ngModel)]="cluster.url">
+  </mat-form-field>
+  <mat-form-field class="input-field">
+    <input matInput placeholder="Key" [(ngModel)]="cluster.key">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" cdkFocusInitial [mat-dialog-close]="cluster">Add</button>
+</div>

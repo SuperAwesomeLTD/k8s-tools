@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatMenuModule,
@@ -6,6 +7,11 @@ import {
   MatButtonModule,
   MatIconModule,
   MatListModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatTableModule,
+  MatCheckboxModule,
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 
@@ -24,6 +30,8 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { AddClusterModalComponent } from './components/add-cluster-modal/add-cluster-modal.component';
+import { ClustersService } from './services/clusters.service';
 
 @NgModule({
   declarations: [
@@ -32,9 +40,11 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
     ClusterListComponent,
     ToolbarComponent,
     LoginPageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    AddClusterModalComponent
   ],
   imports: [
+    FormsModule,
     AngularFireModule.initializeApp(globals.firebaseConf),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -45,9 +55,21 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
     MatButtonModule,
     MatIconModule,
     MatListModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatCheckboxModule,
     AppRoutingModule,
   ],
-  providers: [AuthService, AngularFirestore],
+  providers: [
+    AuthService,
+    ClustersService,
+    AngularFirestore,
+  ],
+  entryComponents: [
+    AddClusterModalComponent,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -34,14 +34,6 @@ export class AuthService {
     });
   }
 
-  isLoggedIn() {
-    if (this.userDetails == null) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
   logout() {
     this.firebaseAuth.auth.signOut()
     .then((res) => this.router.navigate(['/']));

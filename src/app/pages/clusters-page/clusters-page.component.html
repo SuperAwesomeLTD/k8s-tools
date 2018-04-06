@@ -1,2 +1,2 @@
-<app-cluster-list></app-cluster-list>
-<button mat-raised-button color="primary">Add Cluster</button>
+<app-cluster-list [clusters]="clusters"></app-cluster-list>
+<button mat-raised-button color="primary" (click)="addCluster()" class="add-cluster">Add Cluster</button>
