@@ -3,4 +3,5 @@ export interface Cluster {
   url: string;
   token: string;
   uid?: string;
+  info?: any;
 }

@@ -1,2 +1,3 @@
-<app-cluster-list [clusters]="clusters"></app-cluster-list>
+<div class="no-clusters" [hidden]="clusters.length">No clusters. Please add.</div>
+<app-cluster-list *ngIf="clusters.length" [clusters]="clusters"></app-cluster-list>
 <button mat-raised-button color="primary" (click)="addCluster()" class="add-cluster">Add Cluster</button>

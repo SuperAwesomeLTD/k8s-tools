@@ -1,7 +1,3 @@
-.no-clusters {
-  padding: 10px;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -18,6 +14,14 @@
   overflow: visible;
 }
 
-.mat-column-select {
+.mat-column-select, .mat-column-status, .mat-column-actions {
   flex: 0 0 50px;
+}
+
+.error {
+  color: firebrick;
+}
+
+.success {
+  color: limegreen;
 }

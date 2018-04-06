@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatMenuModule,
@@ -32,6 +33,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { AddClusterModalComponent } from './components/add-cluster-modal/add-cluster-modal.component';
 import { ClustersService } from './services/clusters.service';
+import { HelmService } from './services/helm.service';
 
 @NgModule({
   declarations: [
@@ -61,10 +63,12 @@ import { ClustersService } from './services/clusters.service';
     MatTableModule,
     MatCheckboxModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [
     AuthService,
     ClustersService,
+    HelmService,
     AngularFirestore,
   ],
   entryComponents: [
