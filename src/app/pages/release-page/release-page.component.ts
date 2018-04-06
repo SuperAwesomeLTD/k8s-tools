@@ -36,4 +36,7 @@ export class ReleasePageComponent implements OnInit {
     });
   }
 
+  save() {
+    console.log('save');
+  }
 }
