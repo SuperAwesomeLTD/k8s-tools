@@ -22,6 +22,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AppRoutingModule } from './/app-routing.module';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AppRoutingModule } from './/app-routing.module';
     ClustersPageComponent,
     ClusterListComponent,
     ToolbarComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    NotFoundPageComponent
   ],
   imports: [
     AngularFireModule.initializeApp(globals.firebaseConf),
